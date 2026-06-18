@@ -29,11 +29,10 @@ MockInt is a mock interview platform designed to enhance interview preparation t
 
 ## Installation
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/manthankhawse/Interview-Platform.git
-    cd Interview-Platform
-    ```
+```sh
+git clone https://github.com/UI-VAIBHAV/HireSense-AI.git
+cd HireSense-AI
+```
 
 2. Install backend dependencies:
     ```sh
