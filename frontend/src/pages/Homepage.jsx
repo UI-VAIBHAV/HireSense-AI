@@ -181,16 +181,16 @@ function Homepage() {
               <h3 className="text-3xl font-bold mb-4">Follow Us</h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://www.linkedin.com/in/manthan-khawse-74a898245/"
+                  href="https://www.linkedin.com/in/vaibhav-pandey-2473452a6/"
                   className="text-3xl hover:scale-125 transition-all ease-in-out"
                 >
                   <FaLinkedin />
                 </a>
-                <a href="https://x.com/khawse_man69128" className="text-3xl hover:scale-125 transition-all ease-in-out">
+                <a href="https://x.com/Vaibhav_Pandey" className="text-3xl hover:scale-125 transition-all ease-in-out">
                   <FaSquareXTwitter />
                 </a>
                 <a
-                  href="https://github.com/manthankhawse"
+                  href="https://github.com/UI-VAIBHAV"
                   className="text-3xl hover:scale-125 transition-all ease-in-out"
                 >
                   <FaSquareGithub />
