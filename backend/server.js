@@ -20,6 +20,7 @@ const io = new Server(server, {
 });
 
 dotenv.config();
+console.log("MONGO_URI:", process.env.MONGO_URI);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 connectdb();
