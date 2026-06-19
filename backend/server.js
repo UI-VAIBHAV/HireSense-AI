@@ -15,7 +15,7 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173",
-      "https://hire-sense-ai-drab.vercel.app/login"
+      "https://hire-sense-ai-drab.vercel.app"
     ],
     methods: ["GET", "POST"],
     credentials: true,
@@ -23,7 +23,6 @@ const io = new Server(server, {
 });
 
 dotenv.config();
-console.log("MONGO_URI:", process.env.MONGO_URI);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 connectdb();
@@ -32,7 +31,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://hire-sense-ai-drab.vercel.app/login"
+      "https://hire-sense-ai-drab.vercel.app"
     ],
     methods: ["GET", "POST"],
     credentials: true,
