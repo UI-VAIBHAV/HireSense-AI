@@ -18,7 +18,7 @@ function Homepage() {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/logout", {
+      const res = await fetch("https://hiresense-ai-production-a6e7.up.railway.app/api/logout", {
         method: "POST",
         credentials: "include",
       });

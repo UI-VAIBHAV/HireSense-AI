@@ -10,7 +10,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/login", {
+      const res = await fetch("https://hiresense-ai-production-a6e7.up.railway.app/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
