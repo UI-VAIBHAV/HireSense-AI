@@ -3,7 +3,7 @@ import { useState } from "react";
 function ResumeAnalyzer() {
   const [file, setFile] = useState(null);
   const [analysis, setAnalysis] = useState("");
-
+const API_URL = import.meta.env.VITE_API_URL;
   const analyzeResume = async () => {
     if (!file) {
       alert("Please select a PDF");
@@ -14,7 +14,7 @@ function ResumeAnalyzer() {
     formData.append("resume", file);
 
     const res = await fetch(
-      "http://localhost:3000/api/resume/analyze",
+      `${API_URL}/api/resume/analyze`,
       {
         method: "POST",
         body: formData,

@@ -5,10 +5,11 @@ function AIInterview() {
   const [questions, setQuestions] = useState("");
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState("");
+const API_URL = import.meta.env.VITE_API_URL;
+
 
   const generateQuestions = async () => {
-    const res = await fetch(
-      "http://localhost:3000/api/ai/generate-question",
+    const res = await fetch(`${API_URL}/api/ai/generate-question`,
       {
         method: "POST",
         headers: {
@@ -23,8 +24,7 @@ function AIInterview() {
   };
 
   const evaluateAnswer = async () => {
-    const res = await fetch(
-      "http://localhost:3000/api/ai/evaluate-answer",
+    const res = await fetch(`${API_URL}/api/ai/evaluate-answer`,
       {
         method: "POST",
         headers: {
