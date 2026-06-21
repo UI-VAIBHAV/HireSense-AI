@@ -1,12 +1,15 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import cors from "cors";
-import dotenv from "dotenv";
 import connectdb from "./db/connectDb.js";
 import cookieParser from "cookie-parser";
 import auth from "./routes/auth.js";
-
+import aiRoutes from "./routes/ai.js";
+import resumeRoutes from "./routes/resume.js";
+import compilerRoutes from "./routes/compiler.js";
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -22,7 +25,7 @@ const io = new Server(server, {
   },
 });
 
-dotenv.config();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 connectdb();
@@ -38,7 +41,9 @@ app.use(
   })
 );
 app.use("/api", auth);
-
+app.use("/api/ai", aiRoutes);
+app.use("/api/resume", resumeRoutes);
+app.use("/api/compiler", compilerRoutes);
 io.on("connection", (socket) => {
   console.log(`User ${socket.id} connected`);
 

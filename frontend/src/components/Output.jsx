@@ -7,16 +7,15 @@ function Output({ language, version, value, socket, roomId }) {
   const handleRun = async () => {
     try {
       const reqBody = {
-        language,
-        version,
-        files: [
-          {
-            content: value,
-          },
-        ],
-        stdin: input,
-      };
-      const res = await fetch("https://emkc.org/api/v2/piston/execute", {
+  code: value,
+  language,
+  input,
+};
+
+const API_URL = import.meta.env.VITE_API_URL;
+
+const res = await fetch(
+  `${API_URL}/api/compiler/run`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,11 +24,19 @@ function Output({ language, version, value, socket, roomId }) {
       });
 
       const data = await res.json();
-      setOutput(data.run.stdout + "\n" + data.run.stderr);
-      socket.emit("output-change", {
-        room: roomId,
-        data: data.run.stdout + "\n" + data.run.stderr,
-      });
+      console.log(data);
+      const result =
+  data.stdout ||
+  data.stderr ||
+  data.compile_output ||
+  "No Output";
+
+setOutput(result);
+
+socket.emit("output-change", {
+  room: roomId,
+  data: result,
+});
     } catch (error) {
       console.log(error);
     }
