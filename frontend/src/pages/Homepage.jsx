@@ -35,7 +35,7 @@ function Homepage() {
   return (
     <>
       <div className="flex p-4 bg-blue-400 justify-between items-center shadow-xl">
-        <div className="text-4xl font-bold text-white">MockInt</div>
+        <div className="text-4xl font-bold text-white">HireSense-AI</div>
         <div className="flex w-3/12 justify-around items-center">
           <p className="text-2xl font-semibold text-white">Home</p>
           <p className="text-2xl font-semibold text-white">Features</p>
@@ -200,13 +200,13 @@ function Homepage() {
 
             <div className="w-full sm:w-1/3">
               <h3 className="text-3xl font-bold mb-4">Contact Us</h3>
-              <p>Email: info@mockint.com</p>
+              <p>Email: info@HireSense-AI.com</p>
               <p>Phone: +123 456 7890</p>
               <p>Address: 123 Main Street, City, Country</p>
             </div>
           </div>
           <div className="text-center mt-8">
-            <p>&copy; 2024 MockInt. All rights reserved.</p>
+            <p>&copy; 2024 HireSense-AI. All rights reserved.</p>
           </div>
         </div>
       </div>

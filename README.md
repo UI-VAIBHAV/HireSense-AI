@@ -1,6 +1,6 @@
-# MockInt
+# HireSense-AI
 
-MockInt is a mock interview platform designed to enhance interview preparation through real-time collaboration and communication. Built with the MERN stack, socket.io, and peerjs, MockInt offers a seamless and interactive interview experience.
+HireSense-AI is a mock interview platform designed to enhance interview preparation through real-time collaboration and communication. Built with the MERN stack, socket.io, and peerjs, HireSense-AI offers a seamless and interactive interview experience.
 
 ## Table of Contents
 
