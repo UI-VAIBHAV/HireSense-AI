@@ -51,52 +51,46 @@ function Signup() {
   };
 
   return (
-  <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-black px-4">
-    <div className="w-full max-w-md">
-      {/* Heading */}
-      <div className="text-center mb-8">
-        <h1 className="text-5xl font-bold text-white">Create Account</h1>
-        <p className="text-gray-400 mt-3">
-          Join us and get started today
-        </p>
+    <div className="min-h-screen w-full flex flex-col justify-center items-center bg-gray-950 px-4 py-10">
+      <div className="flex items-center gap-2 mb-10">
+        <span className="text-2xl font-extrabold text-amber-400">HireSense</span>
+        <span className="text-2xl font-extrabold text-white">AI</span>
       </div>
 
-      {/* Card */}
       <form
         onSubmit={handleSignup}
+        className="flex flex-col bg-gray-900 border border-gray-800 rounded-2xl p-8 sm:p-10 w-full max-w-md gap-5 shadow-xl"
         noValidate
-        className="backdrop-blur-xl bg-white/10 border border-white/10 shadow-2xl rounded-2xl p-8 space-y-5"
       >
+        <div className="text-center mb-2">
+          <h1 className="text-2xl font-extrabold text-white">Create your account</h1>
+          <p className="text-sm text-gray-400 mt-1">Start practicing in minutes</p>
+        </div>
+
         {error && (
           <div
             role="alert"
-            className="bg-red-500/15 border border-red-500 text-red-300 rounded-lg px-4 py-3 text-sm"
+            className="w-full bg-red-950/40 border border-red-900 text-red-400 text-sm font-medium rounded-lg px-4 py-3"
           >
             {error}
           </div>
         )}
 
-        {/* Name */}
-        <div>
-          <label className="block text-gray-300 mb-2 font-medium">
-            Full Name
-          </label>
+        <div className="flex flex-col gap-1.5 w-full">
+          <label htmlFor="name" className="text-xs font-semibold text-gray-400">Name</label>
           <input
             id="name"
             type="text"
-            placeholder="Enter your full name"
+            placeholder="Your full name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoComplete="name"
-            className="w-full rounded-xl bg-gray-900/70 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            className="p-3 w-full bg-gray-800 border border-gray-700 text-white rounded-lg outline-none focus:border-amber-400 transition-colors"
           />
         </div>
 
-        {/* Email */}
-        <div>
-          <label className="block text-gray-300 mb-2 font-medium">
-            Email
-          </label>
+        <div className="flex flex-col gap-1.5 w-full">
+          <label htmlFor="email" className="text-xs font-semibold text-gray-400">Email</label>
           <input
             id="email"
             type="email"
@@ -104,15 +98,12 @@ function Signup() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             autoComplete="email"
-            className="w-full rounded-xl bg-gray-900/70 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            className="p-3 w-full bg-gray-800 border border-gray-700 text-white rounded-lg outline-none focus:border-amber-400 transition-colors"
           />
         </div>
 
-        {/* Username */}
-        <div>
-          <label className="block text-gray-300 mb-2 font-medium">
-            Username
-          </label>
+        <div className="flex flex-col gap-1.5 w-full">
+          <label htmlFor="username" className="text-xs font-semibold text-gray-400">Username</label>
           <input
             id="username"
             type="text"
@@ -120,56 +111,40 @@ function Signup() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             autoComplete="username"
-            className="w-full rounded-xl bg-gray-900/70 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            className="p-3 w-full bg-gray-800 border border-gray-700 text-white rounded-lg outline-none focus:border-amber-400 transition-colors"
           />
         </div>
 
-        {/* Password */}
-        <div>
-          <label className="block text-gray-300 mb-2 font-medium">
-            Password
-          </label>
+        <div className="flex flex-col gap-1.5 w-full">
+          <label htmlFor="password" className="text-xs font-semibold text-gray-400">Password</label>
           <input
             id="password"
             type="password"
-            placeholder="Minimum 6 characters"
+            placeholder="At least 6 characters"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="new-password"
-            className="w-full rounded-xl bg-gray-900/70 border border-gray-700 px-4 py-3 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+            className="p-3 w-full bg-gray-800 border border-gray-700 text-white rounded-lg outline-none focus:border-amber-400 transition-colors"
           />
         </div>
 
-        {/* Signup Button */}
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 text-white font-semibold text-lg shadow-lg hover:shadow-blue-500/30 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="bg-amber-500 hover:bg-amber-600 disabled:bg-amber-300 disabled:cursor-not-allowed text-gray-900 font-bold py-3 rounded-lg transition-colors mt-2"
         >
-          {loading ? "Creating Account..." : "Create Account"}
+          {loading ? "Creating account..." : "Signup"}
         </button>
 
-        {/* Divider */}
-        <div className="flex items-center gap-3">
-          <div className="h-px flex-1 bg-gray-700"></div>
-          <span className="text-gray-500 text-sm">OR</span>
-          <div className="h-px flex-1 bg-gray-700"></div>
-        </div>
-
-        {/* Login */}
-        <p className="text-center text-gray-400">
+        <p className="text-center text-sm text-gray-400">
           Already have an account?{" "}
-          <Link
-            to="/login"
-            className="text-cyan-400 font-semibold hover:text-cyan-300 transition"
-          >
-            Sign In
+          <Link className="text-amber-400 font-semibold hover:underline" to="/login">
+            Log In
           </Link>
         </p>
       </form>
     </div>
-  </div>
-);
+  );
 }
 
 export default Signup;
