@@ -5,13 +5,12 @@ import './index.css'
 import { DataProvider } from './context/DataProvider.jsx'
 import { ThemeProvider } from '@material-tailwind/react'
 
-
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <>
-  <DataProvider>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  </DataProvider>
-  </>
+  <React.StrictMode>
+    <DataProvider>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </DataProvider>
+  </React.StrictMode>
 )

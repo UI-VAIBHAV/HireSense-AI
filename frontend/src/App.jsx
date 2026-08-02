@@ -7,7 +7,16 @@ import { DataContext } from "./context/DataProvider";
 import MainPage from "./pages/MainPage";
 
 function App() {
-  const { user } = useContext(DataContext);
+  const { user, authLoading } = useContext(DataContext);
+
+  // Don't make any redirect decisions until we actually know the login state
+  if (authLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-lg text-gray-500">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
@@ -27,6 +36,11 @@ function App() {
         <Route
           path="/room"
           element={user ? <MainPage /> : <Navigate to="/login" />}
+        />
+        {/* Catch-all: unknown routes go home (or login, if logged out) */}
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/" : "/login"} />}
         />
       </Routes>
     </BrowserRouter>
