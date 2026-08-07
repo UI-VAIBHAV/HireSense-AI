@@ -48,32 +48,45 @@ router.post("/evaluate-answer", async (req, res) => {
     }
 
     const prompt = `
-You are a senior software engineering interviewer.
+You are a senior technical interviewer evaluating a candidate's SPOKEN answer
+(transcribed from speech-to-text, so minor transcription artifacts are expected
+and should not be penalized as grammar mistakes).
 
 Question:
 ${question}
 
-Candidate Answer:
+Candidate's Answer (transcribed from speech):
 ${answer}
 
-Evaluate the answer.
+Evaluate the answer across three dimensions and return your response in
+EXACTLY this format:
 
-Return response in the following format:
+Overall Rating: X/10
 
-Score: X/10
+Technical Accuracy:
+- Correctness: <are the technical claims accurate?>
+- Mistakes: <list specific technical errors or misconceptions, or "None found">
+- Depth: <did they cover the topic thoroughly or stay surface-level?>
+
+Communication & Clarity:
+- Grammar/Language: <note only genuine grammatical issues, ignore normal speech
+  transcription quirks like missing punctuation or filler words>
+- Structure: <was the answer well-organized, or rambling/hard to follow?>
+- Conciseness: <too verbose, too brief, or appropriate?>
 
 Strengths:
 - Point 1
 - Point 2
 
-Weaknesses:
+Areas to Improve:
 - Point 1
 - Point 2
 
-Suggested Improvement:
+Suggested Model Answer Outline:
 - Point 1
 - Point 2
 `;
+
     const result = await model.generateContent(prompt);
     res.json({ success: true, feedback: result.response.text() });
   } catch (error) {
